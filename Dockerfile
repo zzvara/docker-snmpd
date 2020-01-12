@@ -5,6 +5,7 @@ RUN apt update -y && \
 	apt install snmp-mibs-downloader -y && \
 	download-mibs && \
 	apt clean && \
-	apt autoclean
+	apt autoclean && \
+	rm /etc/snmp/snmp.conf
 
 ENTRYPOINT snmpd -f -Dread_config
